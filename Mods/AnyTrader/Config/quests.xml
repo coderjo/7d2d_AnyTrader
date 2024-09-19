@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<!-- remove trader names from the Goto objectives and set the trader tag for the POI search -->
+	<remove xpath="/quests/quest[@id='tier2_nexttrader']/objective[@type='Goto']/property[@name='location_tag']" />
+	<remove xpath="/quests/quest[@id='tier2_nexttrader']/objective[@type='Goto']/property[@name='location_name']" />
+	<setattribute xpath="/quests/quest[@id='tier2_nexttrader']/objective[@type='Goto']" name="id">trader</setattribute>
+
+	<remove xpath="/quests/quest[@id='tier3_nexttrader']/objective[@type='Goto']/property[@name='location_tag']" />
+	<remove xpath="/quests/quest[@id='tier3_nexttrader']/objective[@type='Goto']/property[@name='location_name']" />
+	<setattribute xpath="/quests/quest[@id='tier3_nexttrader']/objective[@type='Goto']" name="id">trader</setattribute>
+
+	<remove xpath="/quests/quest[@id='tier4_nexttrader']/objective[@type='Goto']/property[@name='location_tag']" />
+	<remove xpath="/quests/quest[@id='tier4_nexttrader']/objective[@type='Goto']/property[@name='location_name']" />
+	<setattribute xpath="/quests/quest[@id='tier4_nexttrader']/objective[@type='Goto']" name="id">trader</setattribute>
+
+	<remove xpath="/quests/quest[@id='tier5_nexttrader']/objective[@type='Goto']/property[@name='location_tag']" />
+	<remove xpath="/quests/quest[@id='tier5_nexttrader']/objective[@type='Goto']/property[@name='location_name']" />
+	<setattribute xpath="/quests/quest[@id='tier5_nexttrader']/objective[@type='Goto']" name="id">trader</setattribute>
+	<!-- allow the repeatable param to be set by a quest using this as a template -->
+	<setattribute xpath="/quests/quest[@id='tier5_nexttrader']/property[@name='repeatable']" name="param1">repeatable</setattribute>
+	
+	<!-- tier 6+ ? -->
+	<insertAfter xpath="/quests/quest[@id='tier5_nexttrader']">
+	<quest id="tier6_nexttrader" template="tier5_nexttrader">
+		<variable name="difficulty" value="6"/>
+		
+		<!-- mark as repeatable, since there are no tiers above 6 yet -->
+		<!-- this doesn't seem to work. needs more research. -->
+		<!-- <variable name="repeatable" value="true"/> -->
+		
+		<!-- apparently, rewards aren't part of the template... -->
+		<reward type="Exp" value="500"/>
+		
+		<reward type="LootItem" id="groupQuestFood" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>		
+	</quest>
+	</insertAfter>
+	
+	<!-- now add those quests to all traders -->
+	<!-- rekt -->
+	<append xpath="/quests/quest_list[@id='trader_rekt_quests']">
+		<!--<quest id="tier2_nexttrader" />-->
+		<quest id="tier3_nexttrader" />
+		<quest id="tier4_nexttrader" />
+		<quest id="tier5_nexttrader" />
+		<quest id="tier6_nexttrader" />
+	</append>
+
+	<!-- jen -->
+	<append xpath="/quests/quest_list[@id='trader_jen_quests']">
+		<quest id="tier2_nexttrader" />
+		<!--<quest id="tier3_nexttrader" />-->
+		<quest id="tier4_nexttrader" />
+		<quest id="tier5_nexttrader" />
+		<quest id="tier6_nexttrader" />
+	</append>
+
+	<!-- bob -->
+	<append xpath="/quests/quest_list[@id='trader_bob_quests']">
+		<quest id="tier2_nexttrader" />
+		<quest id="tier3_nexttrader" />
+		<!--<quest id="tier4_nexttrader" />-->
+		<quest id="tier5_nexttrader" />
+		<quest id="tier6_nexttrader" />
+	</append>
+
+	<!-- hugh -->
+	<append xpath="/quests/quest_list[@id='trader_hugh_quests']">
+		<quest id="tier2_nexttrader" />
+		<quest id="tier3_nexttrader" />
+		<quest id="tier4_nexttrader" />
+		<!--<quest id="tier5_nexttrader" />-->
+		<quest id="tier6_nexttrader" />
+	</append>
+
+	<!-- joel -->
+	<append xpath="/quests/quest_list[@id='trader_joel_quests']">
+		<quest id="tier2_nexttrader" />
+		<quest id="tier3_nexttrader" />
+		<quest id="tier4_nexttrader" />
+		<quest id="tier5_nexttrader" />
+		<quest id="tier6_nexttrader" />
+	</append>
+</configs>

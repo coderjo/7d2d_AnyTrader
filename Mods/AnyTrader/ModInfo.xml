@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<Name value="AnyTrader" />
+	<DisplayName value="Any Trader Routes" />
+	<Version value="0.1" />
+	<Description value="Have all traders send you on Open Trade Routes quests to any other trader." />
+	<Author value="Coderjo" />
+	<Website value="" />
+</xml>
